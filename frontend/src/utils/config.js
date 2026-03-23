@@ -2,7 +2,7 @@
 // Update CONTRACT_ADDRESS after you deploy with:
 //   npx hardhat run scripts/deploy.js --network base-sepolia
 
-export const CONTRACT_ADDRESS = "0xAb80113976754CA972936c5674bB1B82b2a150Bd"; // ← replace after deploy
+export const CONTRACT_ADDRESS = "0x84146f68A055674B5859093eEE9fab9b941582c4"; // ← replace after deploy
 
 export const CONTRACT_ABI = [
   {
@@ -155,4 +155,4 @@ export const BASE_MAINNET = {
   },
 };
 
-export const ACTIVE_CHAIN = BASE_SEPOLIA; // switch to BASE_MAINNET for prod
+export const ACTIVE_CHAIN = BASE_MAINNET; // was BASE_SEPOLIA
