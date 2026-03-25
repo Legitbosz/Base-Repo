@@ -1,13 +1,29 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { ethers } from "ethers";
 import { CONTRACT_ADDRESS, CONTRACT_ABI, ACTIVE_CHAIN } from "./utils/config";
-import TipForm from "./components/TipForm";
-import TipFeed from "./components/TipFeed";
-import Stats from "./components/Stats";
-import Mascot from "./components/Mascot";
-import WithdrawButton from "./components/WithdrawButton";
 import { useResolvedName } from "./hooks/useResolvedName";
 import "./App.css";
+
+// Always load these immediately — they're above the fold
+import Mascot from "./components/Mascot";
+import TipForm from "./components/TipForm";
+
+// Lazy load these — they're below the fold or conditional
+const TipFeed = lazy(() => import("./components/TipFeed"));
+const Stats = lazy(() => import("./components/Stats"));
+const WithdrawButton = lazy(() => import("./components/WithdrawButton"));
+
+// Simple inline fallback spinner
+function Skeleton() {
+  return (
+    <div style={{
+      background: "rgba(255,255,255,0.04)",
+      borderRadius: 16,
+      height: 120,
+      animation: "shimmer 1.2s infinite",
+    }} />
+  );
+}
 
 export default function App() {
   const [provider, setProvider] = useState(null);
@@ -56,7 +72,7 @@ export default function App() {
   }, []);
 
   const connectWallet = async () => {
-    if (!window.ethereum) { alert("Please install MetaMask!"); return; }
+    if (!window.ethereum) { alert("Please install a Web3 wallet like Rabby!"); return; }
     try {
       const web3Provider = new ethers.BrowserProvider(window.ethereum);
       const accounts = await web3Provider.send("eth_requestAccounts", []);
@@ -141,6 +157,7 @@ export default function App() {
           )}
         </div>
       </header>
+
       <section className="hero hero-with-mascot">
         <div className="hero-content">
           <div className="hero-tag">Built on Base ⚡</div>
@@ -149,9 +166,12 @@ export default function App() {
         </div>
         <Mascot tipCount={stats.count} txStatus={txStatus} />
       </section>
+
       <main className="main-grid">
         <div className="left-col">
-          <Stats stats={stats} />
+          <Suspense fallback={<Skeleton />}>
+            <Stats stats={stats} />
+          </Suspense>
           <TipForm
             onSend={sendTip}
             loading={loading}
@@ -163,13 +183,18 @@ export default function App() {
             chainName={ACTIVE_CHAIN.name}
           />
           {account && contractOwner && account.toLowerCase() === contractOwner && (
-            <WithdrawButton account={account} signer={signer} balance={stats.balance} />
+            <Suspense fallback={<Skeleton />}>
+              <WithdrawButton account={account} signer={signer} balance={stats.balance} />
+            </Suspense>
           )}
         </div>
         <div className="right-col">
-          <TipFeed tips={tips} newTip={newTip} />
+          <Suspense fallback={<Skeleton />}>
+            <TipFeed tips={tips} newTip={newTip} />
+          </Suspense>
         </div>
       </main>
+
       <footer className="footer">
         <span>TipJar · Built on {ACTIVE_CHAIN.name} · Open source</span>
         <a href={ACTIVE_CHAIN.blockExplorers.default.url + "/address/" + CONTRACT_ADDRESS} target="_blank" rel="noopener noreferrer">
