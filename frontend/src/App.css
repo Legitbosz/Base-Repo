@@ -212,11 +212,12 @@ body {
 }
 
 .hero-sub {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text2);
-  max-width: 480px;
-  line-height: 1.6;
+  max-width: 520px;
+  line-height: 1.7;
   font-weight: 400;
+  white-space: normal;
 }
 
 /* ─── Main grid ──────────────────────────────────────────────────────────── */
@@ -688,3 +689,39 @@ body {
 
 @media (max-width:900px) { .hero-with-mascot { flex-direction:column; align-items:flex-start; } .hero-mascot-wrap { align-self:center; } }
 @media (max-width:768px) { .hero-with-mascot { flex-direction:column; } }
+
+/* ─── Feed enhancements ──────────────────────────────────────────────────── */
+.feed-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:16px; }
+.feed-header-left { display:flex; flex-direction:column; gap:4px; }
+.feed-summary { font-family:'DM Mono', monospace; font-size:0.72rem; color:var(--text3); }
+
+.feed-search-wrap { margin-bottom:12px; }
+.feed-search {
+  width:100%; padding:10px 14px;
+  background:var(--bg3); border:1px solid var(--border);
+  border-radius:var(--radius-sm); color:var(--text);
+  font-family:'DM Mono', monospace; font-size:0.82rem;
+  outline:none; transition:border-color 0.2s;
+}
+.feed-search:focus { border-color:var(--accent); }
+.feed-search::placeholder { color:var(--text3); }
+
+.feed-filters { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+.feed-filter-btn {
+  padding:6px 14px; border-radius:999px;
+  border:1px solid var(--border); background:var(--bg3);
+  color:var(--text2); font-family:'Syne', sans-serif;
+  font-size:0.78rem; font-weight:600; cursor:pointer;
+  transition:all 0.15s;
+}
+.feed-filter-btn:hover { border-color:var(--accent); color:var(--text); }
+.feed-filter-active { background:var(--accent); border-color:var(--accent); color:white; }
+
+.tip-emoji-whale { box-shadow:0 0 12px rgba(99,102,241,0.4); border-color:var(--accent); }
+.tip-amount-whale { color:#ffd700; font-weight:700; }
+
+.tip-message { margin-top:12px; padding-top:12px; border-top:1px solid var(--border); font-size:0.88rem; color:var(--text2); font-style:italic; line-height:1.6; }
+.tip-message-quote { color:var(--accent2); font-style:normal; font-size:1rem; }
+
+.live-indicator { display:flex; align-items:center; gap:6px; font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--success); }
+.live-dot { width:7px; height:7px; border-radius:50%; background:var(--success); box-shadow:0 0 8px var(--success); animation:pulse 2s infinite; }
