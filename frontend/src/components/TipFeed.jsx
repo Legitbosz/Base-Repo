@@ -133,7 +133,7 @@ export default function TipFeed({ tips, newTip }) {
             onChange={(e) => setSearch(e.target.value)}
           />
           {search && (
-            <button className="feed-search-clear" onClick={() => setSearch("")}>✕</button>
+            <button className="feed-search-clear" onClick={() => { setSearch(""); setFilter("All"); }}>✕ Clear</button>
           )}
         </div>
       )}
