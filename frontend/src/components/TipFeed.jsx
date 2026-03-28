@@ -46,7 +46,7 @@ function TipCard({ tip, isNew }) {
     <div className={cardClass}>
       <div className="tip-card-top">
         <div className={`tip-emoji-bubble ${isWhale ? "tip-emoji-whale" : ""}`}>
-          {tip.emoji || "💜"}
+          {tip.emoji || "🔥"}
         </div>
         <div className="tip-meta">
           <TipSender address={tip.sender} isNew={isNew} />
