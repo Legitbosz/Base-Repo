@@ -183,6 +183,7 @@ export default function App() {
             onConnect={connectWallet}
             onSwitch={switchToBase}
             chainName={ACTIVE_CHAIN.name}
+            signer={signer}
           />
           {account && contractOwner && account.toLowerCase() === contractOwner && (
             <Suspense fallback={<Skeleton />}>
