@@ -40,7 +40,7 @@ function TipCard({ tip, isNew }) {
     (isNew ? " tip-card-new" : "");
 
   const ethAmount = parseFloat(tip.amount);
-  const isWhale = ethAmount >= 0.01;
+  const isWhale = ethAmount >= 0.005;
 
   return (
     <div className={cardClass}>
