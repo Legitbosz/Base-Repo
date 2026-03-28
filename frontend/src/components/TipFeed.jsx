@@ -146,6 +146,13 @@ export default function TipFeed({ tips, newTip }) {
         </div>
       )}
 
+      {/* Result count */}
+      {tips.length > 0 && search.trim() && (
+        <div className="feed-result-count">
+          {filtered.length} result{filtered.length !== 1 ? "s" : ""} found
+        </div>
+      )}
+
       {/* Empty state */}
       {tips.length === 0 ? (
         <div className="feed-empty">
