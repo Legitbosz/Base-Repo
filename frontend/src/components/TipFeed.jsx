@@ -120,7 +120,7 @@ export default function TipFeed({ tips, newTip }) {
 
       {/* Search */}
       {tips.length > 0 && (
-        <div className="feed-search-wrap">
+        <div className="feed-search-wrap" style={{ position: "relative" }}>
           <input
             className="feed-search"
             type="text"
@@ -128,6 +128,9 @@ export default function TipFeed({ tips, newTip }) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          {search && (
+            <button className="feed-search-clear" onClick={() => setSearch("")}>✕</button>
+          )}
         </div>
       )}
 
