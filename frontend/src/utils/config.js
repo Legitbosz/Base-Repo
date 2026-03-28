@@ -2,8 +2,31 @@ export const CONTRACT_ADDRESS = "0x66F4fb4C8F1B1D497D34855f3c7d41934b8A11EA";
 
 export const CONTRACT_ABI = [{"inputs":[{"internalType":"string","name":"_jarName","type":"string"},{"internalType":"string","name":"_jarDescription","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"OwnableInvalidOwner","type":"error"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"OwnableUnauthorizedAccount","type":"error"},{"inputs":[],"name":"ReentrancyGuardReentrantCall","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"sender","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"},{"indexed":false,"internalType":"string","name":"message","type":"string"},{"indexed":false,"internalType":"string","name":"emoji","type":"string"},{"indexed":false,"internalType":"uint256","name":"timestamp","type":"uint256"}],"name":"TipReceived","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Withdrawn","type":"event"},{"inputs":[],"name":"MAX_MESSAGE_LENGTH","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MIN_TIP","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getBalance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getTipCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"offset","type":"uint256"},{"internalType":"uint256","name":"limit","type":"uint256"}],"name":"getTips","outputs":[{"components":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"string","name":"message","type":"string"},{"internalType":"string","name":"emoji","type":"string"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"internalType":"struct TipJar.Tip[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"jarDescription","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"jarName","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"message","type":"string"},{"internalType":"string","name":"emoji","type":"string"}],"name":"tip","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"tips","outputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"string","name":"message","type":"string"},{"internalType":"string","name":"emoji","type":"string"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalTipCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalTipsReceived","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_name","type":"string"},{"internalType":"string","name":"_description","type":"string"}],"name":"updateJarInfo","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}];
 
-export const BASE_SEPOLIA = { id: 84532, name: "Base Sepolia", network: "base-sepolia", nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 }, rpcUrls: { default: { http: ["https://sepolia.base.org"] }, public: { http: ["https://sepolia.base.org"] } }, blockExplorers: { default: { name: "Basescan", url: "https://sepolia.basescan.org" } }, testnet: true };
+const ALCHEMY_KEY = import.meta.env.VITE_ALCHEMY_KEY || "WITyB0gzEsiE2NOmbmD6J";
 
-export const BASE_MAINNET = { id: 8453, name: "Base", network: "base", nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 }, rpcUrls: { default: { http: ["https://base-mainnet.g.alchemy.com/v2/WITyB0gzEsiE2NOmbmD6J"] }, public: { http: ["https://base-mainnet.g.alchemy.com/v2/WITyB0gzEsiE2NOmbmD6J"] } }, blockExplorers: { default: { name: "Basescan", url: "https://basescan.org" } } };
+export const BASE_SEPOLIA = {
+  id: 84532,
+  name: "Base Sepolia",
+  network: "base-sepolia",
+  nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+  rpcUrls: {
+    default: { http: ["https://sepolia.base.org"] },
+    public: { http: ["https://sepolia.base.org"] },
+  },
+  blockExplorers: { default: { name: "Basescan", url: "https://sepolia.basescan.org" } },
+  testnet: true,
+};
+
+export const BASE_MAINNET = {
+  id: 8453,
+  name: "Base",
+  network: "base",
+  nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+  rpcUrls: {
+    default: { http: [`https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`] },
+    public: { http: [`https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`] },
+  },
+  blockExplorers: { default: { name: "Basescan", url: "https://basescan.org" } },
+};
 
 export const ACTIVE_CHAIN = BASE_MAINNET;
