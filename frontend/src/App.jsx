@@ -51,6 +51,7 @@ export default function App() {
 
   const fetchData = useCallback(async (c) => {
     try {
+      // Fetch all contract data in parallel for performance
       const [rawTips, totalReceived, tipCount, balance] = await Promise.all([
         c.getTips(0, 50), c.totalTipsReceived(), c.totalTipCount(), c.getBalance(),
       ]);
