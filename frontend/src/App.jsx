@@ -52,7 +52,7 @@ export default function App() {
   const fetchData = useCallback(async (c) => {
     try {
       const [rawTips, totalReceived, tipCount, balance] = await Promise.all([
-        c.getTips(0, 20), c.totalTipsReceived(), c.totalTipCount(), c.getBalance(),
+        c.getTips(0, 50), c.totalTipsReceived(), c.totalTipCount(), c.getBalance(),
       ]);
       setTips(rawTips.map((t) => ({
         sender: t.sender,
