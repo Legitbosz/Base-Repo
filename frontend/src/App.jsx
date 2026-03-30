@@ -211,7 +211,7 @@ export default function App() {
 
       <footer className="footer">
         <span>TipJar v1.0 · Built on {ACTIVE_CHAIN.name} · Open source</span>
-        <a href={ACTIVE_CHAIN.blockExplorers.default.url + "/address/" + CONTRACT_ADDRESS} target="_blank" rel="noopener noreferrer">
+        <a href={ACTIVE_CHAIN.blockExplorers.default.url + "/address/" + CONTRACT_ADDRESS} target="_blank" rel="noopener noreferrer" title="View TipJar contract on Basescan">
           View Contract ↗
         </a>
         <a href="https://github.com" target="_blank" rel="noopener noreferrer">
