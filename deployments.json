@@ -1,0 +1,51 @@
+{
+  "network": "base-mainnet",
+  "chainId": 8453,
+  "deployer": "0x0F2744028EE78C0aE2Ff20E0C32ca458439cFbf2",
+  "contracts": {
+    "TipJar": {
+      "address": "0x66F4fb4C8F1B1D497D34855f3c7d41934b8A11EA",
+      "description": "Original tip jar with messages and emojis"
+    },
+    "TipSplitter": {
+      "address": "0x8C1F3054739342A540c1dfd581b5efd03D1de5c1",
+      "description": "Split tips between multiple wallets automatically"
+    },
+    "TipLeaderboard": {
+      "address": "0x0886c4D0364BE61DC843833B0938eDC01Ca65571",
+      "description": "On-chain leaderboard tracking top tippers"
+    },
+    "TipVault": {
+      "address": "0xda30b7A46a6706262c45A9ab0129114632DCC1C6",
+      "description": "Time-locked tip vault, unlocks after 7 days"
+    },
+    "TipBadge": {
+      "address": "0xcA9B3eD9c9e31820B6cA026da6C8e94e8f954dFd",
+      "description": "Badge rewards based on tip milestones"
+    },
+    "TipMultiJar": {
+      "address": "0x4C3885Ba32bAcA6Ff2662C31eA0515F643A05b39",
+      "description": "Multiple tip jars for different creators"
+    },
+    "TipEscrow": {
+      "address": "0x68a183CdF297a3591657660e03753686e04aA481",
+      "description": "Tips held in escrow until task is completed"
+    },
+    "TipDAO": {
+      "address": "0x9aD9a4F3aE9A45A4823a88FfF52A5Ba91b21a052",
+      "description": "Community voting on how funds get spent"
+    },
+    "TipSubscription": {
+      "address": "0xfd22D0a90Ca332E63797E2e856407bC3D74BfbEc",
+      "description": "Recurring subscription-based tipping"
+    },
+    "TipWhitelist": {
+      "address": "0xc8738a9f5D7F08356f420c239C943f5B819533a4",
+      "description": "Exclusive whitelist-only tip jar"
+    },
+    "TipMessage": {
+      "address": "0x97B7e59877acef2f29C0Df15E84e3CE1b85B3279",
+      "description": "Tips with public and private on-chain messages"
+    }
+  }
+}
