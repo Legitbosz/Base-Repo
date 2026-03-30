@@ -102,6 +102,7 @@ export default function App() {
   };
 
   const switchToBase = async () => {
+    toast("Switching to Base...", "Please confirm in your wallet", "pending", 5000);
     try {
       await window.ethereum.request({
         method: "wallet_addEthereumChain",
