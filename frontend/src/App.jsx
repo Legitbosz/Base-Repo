@@ -45,7 +45,7 @@ export default function App() {
     const readContract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, readProvider);
     setContract(readContract);
     fetchData(readContract);
-    const interval = setInterval(() => fetchData(readContract), 10000);
+    const interval = setInterval(() => fetchData(readContract), 15000);
     return () => { clearInterval(interval); readContract.removeAllListeners(); };
   }, []);
 
