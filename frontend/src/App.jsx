@@ -83,6 +83,7 @@ export default function App() {
       setSigner(web3Signer);
       setAccount(accounts[0]);
       setChainId(Number(network.chainId));
+      document.title = "TipJar — Connected";
       const rw = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, web3Signer);
       setContract(rw);
       window.ethereum.on("accountsChanged", (accs) => {
