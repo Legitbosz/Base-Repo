@@ -164,7 +164,7 @@ export default function App() {
               <button className="btn-disconnect" onClick={disconnect}>✕</button>
             </div>
           ) : (
-            <button className="btn-connect" onClick={connectWallet}>Connect Wallet</button>
+            <button className="btn-connect" onClick={connectWallet} aria-label="Connect Web3 wallet">Connect Wallet</button>
           )}
         </div>
       </header>
