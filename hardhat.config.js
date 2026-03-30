@@ -13,13 +13,11 @@ module.exports = {
     },
   },
   networks: {
-    // Base Sepolia Testnet
     "base-sepolia": {
       url: process.env.BASE_SEPOLIA_RPC_URL || "https://sepolia.base.org",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       chainId: 84532,
     },
-    // Base Mainnet
     "base-mainnet": {
       url: process.env.BASE_MAINNET_RPC_URL || "https://mainnet.base.org",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
@@ -28,27 +26,30 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      "base-sepolia": process.env.BASESCAN_API_KEY || "",
       "base-mainnet": process.env.BASESCAN_API_KEY || "",
+      "base-sepolia": process.env.BASESCAN_API_KEY || "",
     },
     customChains: [
-      {
-        network: "base-sepolia",
-        chainId: 84532,
-        urls: {
-          apiURL: "https://api-sepolia.basescan.org/api",
-          browserURL: "https://sepolia.basescan.org",
-        },
-      },
       {
         network: "base-mainnet",
         chainId: 8453,
         urls: {
-          apiURL: "https://api.basescan.org/api",
+          apiURL: "https://api.etherscan.io/v2/api?chainid=8453",
           browserURL: "https://basescan.org",
         },
       },
+      {
+        network: "base-sepolia",
+        chainId: 84532,
+        urls: {
+          apiURL: "https://api.etherscan.io/v2/api?chainid=84532",
+          browserURL: "https://sepolia.basescan.org",
+        },
+      },
     ],
+  },
+  sourcify: {
+    enabled: false,
   },
   paths: {
     sources: "./contracts",
